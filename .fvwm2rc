@@ -1,0 +1,131 @@
+ImagePath +:/usr/include/X11/bitmaps:/usr/include/X11/pixmaps
+
+# Keystrokes/Mousestrokes
+################################################################################
+# Root window
+Mouse 1 R       A Menu RootMenu
+Mouse 2 R       A Menu Window-Ops
+Mouse 3 R       A WindowList
+# Title bar buttons
+Mouse 0 1       A Menu Window-Ops
+Mouse 0 2       A Maximize 100 100
+Mouse 2 2       A Maximize 0 100
+Mouse 0 4       A Iconify
+#Mouse 0 3       A Destroy
+#Mouse 0 3       A Close
+#Ooops... Destory is NOT what we want. LOL
+# Remaining parts of the screen
+Mouse 1 F       A Resize-or-Raise
+Mouse 1 TS      A Move-or-Raise
+Mouse 1 TS      S Resize
+Mouse 1 I       A Move-or-Iconify
+Mouse 2 I       A Iconify
+Mouse 2 FST     A Menu Window-Ops Nop
+Mouse 3 TSIF    A RaiseLower
+# Ctrl movement
+Key Left      A C Scroll -100 +0
+Key Right     A C Scroll +100 +0
+Key Up        A C Scroll +0   -100
+Key Down      A C Scroll +0   +100
+
+################################################################################
+# Initialization & Restart Modules
+################################################################################
+AddToFunc InitFunction
++ "I" Module FvwmBacker
++ "I" Module FvwmPager
++ "I" exec xload -update 5 -geometry 87x80-0-127 -fg black -bg wheat
++ "I" exec xclock -geometry 87x80-0-209 -fg black -bg wheat
+AddToFunc RestartFunction
++ "I" Module FvwmBacker
++ "I" Module FvwmPager
++ "I" exec xload -update 5 -geometry 87x80-0-127 -fg black -bg wheat
++ "I" exec xclock -geometry 87x80-0-209 -fg black -bg wheat
+
+################################################################################
+# Menus
+################################################################################
+AddToMenu RootMenu "Root Menu" Title
++ "xterm"               Exec exec xterm
++ "Pager"               Module  FvwmPager 0 0
++ ""                    nop
++ "Restart"             Restart fvwm2
++ "Quit"                Module FvwmForm QuitVerify
+
+# This is used by the mouse contexts
+AddToMenu Window-Ops "Window Operations" Title
++ "&Move"           Move
++ "&Resize"         Resize
++ "R&aise"          Raise
++ "&Lower"          Lower
++ "&Close"          Close
+
+################################################################################
+# Sample functions, some useful, some fun to look at
+################################################################################
+# Basic button functions
+AddToFunc Move-or-Raise
++ "I" Raise
++ "M" Move
++ "D" Lower
+AddToFunc Move-or-Iconify
++ "I" Raise
++ "M" Move
++ "D" Iconify
+AddToFunc Resize-or-Raise
++ "I" Raise
++ "M" Resize
++ "D" Lower
+AddToFunc Iconify-and-Raise
++ "I" Iconify
++ "I" Raise
+
+# Styles
+################################################################################
+Style "*" MWMFunctions, MWMDecor, MWMBorder, BorderWidth 6, HandleWidth 6
+Style "*" FocusFollowsMouse
+Style "*" HintOverride
+Style "*" DecorateTransient, NoPPosition
+Style "*" IconBox 0 -10 -280 -1
+Style "*" SmartPlacement
+
+Style "FvwmPager" Sticky, WindowListSkip, NoTitle, NoHandles, BorderWidth 2
+
+Style "xload" Sticky, WindowListSkip, NoTitle, BorderWidth 2, NoHandles
+Style "xclock" Sticky, WindowListSkip, NoTitle, BorderWidth 2, NoHandles
+Style "xterm"           Icon m-x11.xpm
+
+MenuStyle * Font a24
+
+# Specific Styles
+# Pager
+*FvwmPagerBack                wheat
+*FvwmPagerFore                black
+*FvwmPagerFont                none
+*FvwmPagerHilight             orange
+*FvwmPagerGeometry            87x125-0-0
+# Background
+*FvwmBackerDesk 0 -solid steelblue
+# Exit menu
+*QuitVerifyGrabServer
+*QuitVerifyWarpPointer
+*QuitVerifyFont       lucidasanstypewriter-12
+*QuitVerifyButtonFont lucidasanstypewriter-12
+*QuitVerifyItemFore   black
+*QuitVerifyItemBack   lightgray
+*QuitVerifyLine       center
+*QuitVerifyText       "Do you really want to exit FVWM?"
+*QuitVerifyLine       expand
+*QuitVerifyButton     quit "Yes"
+*QuitVerifyCommand    Quit
+*QuitVerifyButton     quit "No"
+*QuitVerifyCommand    Nop
+
+# Generic settings
+################################################################################
+EdgeResistance 500 10
+EdgeScroll 0 0
+WindowFont lucidasanstypewriter-12
+IconFont lucidasanstypewriter-12
+DeskTopSize 2x4
+

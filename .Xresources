@@ -1,0 +1,69 @@
+
+! Class 48 = number, letter, underscore class
+! Class 32 = space and tab
+! Remove ':' so we can select filenames on greps, cuts, awks, etc.
+XTerm*charClass: 58:32, 45-47:48, 126:48
+! ----------------------------------
+
+! XTerm fontMenu
+! Default
+XTerm*faceName: Menlo
+XTerm*faceSize: 9
+! Unreadable
+XTerm*faceSize1: 2
+! Tiny
+XTerm*faceSize2: 6
+! Small
+XTerm*faceSize3: 9
+! Medium
+XTerm*faceSize4: 10
+! Large
+XTerm*faceSize5: 22
+! Huge
+XTerm*faceSize6: 36
+
+! However, blue3 is not readable on a black background.
+!
+! Another choice was from the Debian settings:
+!XTerm*color4: DodgerBlue1
+!
+!XTerm*color12: SteelBlue1
+!
+! From rgb.txt:
+! 30 144 255            DodgerBlue1
+! 99 184 255            SteelBlue1
+!
+! Some users object to this choice because the background (color4) is brighter
+! than they are accustomed.  Others point out that the different weights for
+! the red/green components make it appear to be not really blue.  Finally, it
+! provides poor contrast against color13 and color14.
+
+
+!xterm*background:               black
+!xterm*foreground:               aliceblue
+XTerm*foreground: black
+XTerm*background: wheat
+
+XTerm*cursorColor:              orange
+
+XTerm*pointerColorBackground:   black
+XTerm*pointerColor:             white
+
+XTerm*visualBell:               0
+XTerm*borderColor:              black
+XTerm*saveLines:                2048
+XTerm*scrollKey:                true
+
+! do we really need a scrollbar?
+!XTerm*scrollBar:                true
+!XTerm*rightScrollBar:           false
+
+! For some reason this was somehow being set and not over-written
+! by "xrdb ~/.Xresources". It was set to "-color" which was causing
+! the scrollbar to be horizontal stripes instead of dithered 50% fg/bg
+*customization:
+
+! Having lots of trouble with this on VMWare
+! This broken vim<>vim copy in diff xterms
+!XTerm*selectToClipboard: true
+
