@@ -1,0 +1,5 @@
+# Green checkmark on status = good; red x on nonzero status
+C_DEFAULT="\[\033[m\]"
+C_RED="\[\033[31m\]"
+C_GREEN="\[\033[32m\]"
+PS1="$C_DEFAULT\$? \$(if [[ \$? == 0 ]]; then echo \"$C_GREEN\342\234\223\"; else echo \"$C_RED\342\234\227\"; fi) $C_DEFAULT[\T \d] \w$C_DEFAULT\n% "

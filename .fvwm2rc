@@ -46,7 +46,7 @@ AddToFunc RestartFunction
 # Menus
 ################################################################################
 AddToMenu RootMenu "Root Menu" Title
-+ "xterm"               Exec exec xterm
++ "xterm"               Exec xterm
 + "Pager"               Module  FvwmPager 0 0
 + ""                    nop
 + "Restart"             Restart fvwm2
