@@ -8,6 +8,8 @@ echo Sourcing bashrc...
 echo 'Remember ... (Middle-click is one-finger-touch-+-command)'
 
 # See bash(1) for more options
+# this was +o and !$ didn't work
+set -o histexpand
 HISTCONTROL=ignoredups
 HISTSIZE=1000
 HISTFILESIZE=2000

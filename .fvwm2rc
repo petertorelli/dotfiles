@@ -34,17 +34,11 @@ Key Down      A C Scroll +0   +100
 AddToFunc InitFunction
 + "I" Module FvwmBacker
 + "I" Module FvwmPager
-+ "I" exec xload -update 5 -geometry 87x80-0-127 -fg black -bg wheat
-+ "I" exec xclock -geometry 87x80-0-209 -fg black -bg wheat
 AddToFunc RestartFunction
 + "I" Module FvwmBacker
 + "I" Module FvwmPager
-+ "I" exec xload -update 5 -geometry 87x80-0-127 -fg black -bg wheat
-+ "I" exec xclock -geometry 87x80-0-209 -fg black -bg wheat
 
-################################################################################
 # Menus
-################################################################################
 AddToMenu RootMenu "Root Menu" Title
 + "xterm"               Exec xterm
 + "Pager"               Module  FvwmPager 0 0
@@ -82,35 +76,35 @@ AddToFunc Iconify-and-Raise
 
 # Styles
 ################################################################################
-Style "*" MWMFunctions, MWMDecor, MWMBorder, BorderWidth 6, HandleWidth 6
-Style "*" FocusFollowsMouse
-Style "*" HintOverride
-Style "*" DecorateTransient, NoPPosition
-Style "*" IconBox 0 -10 -280 -1
-Style "*" SmartPlacement
+Style * MWMFunctions, MWMDecor, MWMBorder, BorderWidth 6, HandleWidth 6
+Style * FocusFollowsMouse
+Style * HintOverride
+Style * DecorateTransient, NoPPosition
+Style * IconBox 0 -10 -280 -1
+#Style FvwmButtons Sticky, WindowListSkip, NoTitle, NoHandles, BorderWidth 0
+Style FvwmPager   Sticky, WindowListSkip, NoTitle, NoHandles, BorderWidth 2
+Style * SmartPlacement
 
-Style "FvwmPager" Sticky, WindowListSkip, NoTitle, NoHandles, BorderWidth 2
-
-Style "xload" Sticky, WindowListSkip, NoTitle, BorderWidth 2, NoHandles
-Style "xclock" Sticky, WindowListSkip, NoTitle, BorderWidth 2, NoHandles
-Style "xterm"           Icon m-x11.xpm
 
 MenuStyle * Font a24
 
 # Specific Styles
 # Pager
-*FvwmPagerBack                wheat
-*FvwmPagerFore                black
-*FvwmPagerFont                none
-*FvwmPagerHilight             orange
-*FvwmPagerGeometry            87x125-0-0
+*FvwmPagerBack        wheat
+*FvwmPagerFore        black
+*FvwmPagerFont        none
+*FvwmPagerHilight     orange
+*FvwmPagerGeometry  80x120-0-0
+# Buttons
+#*FvwmButtonsGeometry  80x120-0-0
+#*FvwmButtonsColumns   1
 # Background
 *FvwmBackerDesk 0 -solid steelblue
 # Exit menu
 *QuitVerifyGrabServer
 *QuitVerifyWarpPointer
-*QuitVerifyFont       lucidasanstypewriter-12
-*QuitVerifyButtonFont lucidasanstypewriter-12
+#*QuitVerifyFont       lucidasanstypewriter-12
+#*QuitVerifyButtonFont lucidasanstypewriter-12
 *QuitVerifyItemFore   black
 *QuitVerifyItemBack   lightgray
 *QuitVerifyLine       center
@@ -125,7 +119,15 @@ MenuStyle * Font a24
 ################################################################################
 EdgeResistance 500 10
 EdgeScroll 0 0
-WindowFont lucidasanstypewriter-12
-IconFont lucidasanstypewriter-12
+#WindowFont lucidasanstypewriter-12
+#IconFont lucidasanstypewriter-12
 DeskTopSize 2x4
+
+#*FvwmButtons (Swallow xclock \
+  'Exec xclock -bg wheat -geometry 80x80 &')
+#*FvwmButtons (Swallow xload \
+  'Exec xload -update 5 -nolabel -hl grey -bg wheat -geometry 80x80 -scale 5 &')
+#*FvwmButtons (1x2 Swallow FvwmPager \
+  'Module FvwmPager')
+
 

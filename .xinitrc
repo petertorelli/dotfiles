@@ -7,5 +7,7 @@
 # invoke global X session script
 . /etc/X11/Xsession
 
+# Damnit apple... I hate to have to do this.
+#xmodmap -e 'clear Lock' -e 'keycode 66 = Escape NoSymbol Escape' &
 
 xrdb ~/.Xresources &
