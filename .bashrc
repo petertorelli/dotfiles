@@ -5,7 +5,8 @@ case $- in
 esac
 
 echo Sourcing bashrc...
-echo 'Remember ... (Middle-click is one-finger-touch-+-command)'
+echo 'Middle-click: one-finger-touch-+-command'
+echo 'Context-click: two-finger-touch-+-ctrl'
 
 # See bash(1) for more options
 # this was +o and !$ didn't work

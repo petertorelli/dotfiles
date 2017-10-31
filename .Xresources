@@ -8,13 +8,13 @@ XTerm*charClass: 58:32, 45-47:48, 126:48
 ! XTerm fontMenu
 ! Default
 XTerm*faceName: Menlo
-XTerm*faceSize: 9
+XTerm*faceSize: 8
 ! Unreadable
 XTerm*faceSize1: 2
 ! Tiny
 XTerm*faceSize2: 6
 ! Small
-XTerm*faceSize3: 9
+XTerm*faceSize3: 8
 ! Medium
 XTerm*faceSize4: 10
 ! Large
