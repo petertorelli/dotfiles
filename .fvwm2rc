@@ -37,14 +37,16 @@ AddToFunc InitFunction
 AddToFunc RestartFunction
 + "I" Module FvwmBacker
 + "I" Module FvwmPager
++ "I" Exec xclock -geometry 79x79-0-123 -bg wheat
 
 # Menus
 AddToMenu RootMenu "Root Menu" Title
-+ "xterm"               Exec xterm
-+ "Pager"               Module  FvwmPager 0 0
-+ ""                    nop
-+ "Restart"             Restart fvwm2
-+ "Quit"                Module FvwmForm QuitVerify
++ "xterm"     Exec xterm
++ "Firefox"   Exec firefox
++ "Pager"     Module  FvwmPager 0 0
++ ""          nop
++ "Restart"   Restart fvwm2
++ "Quit"      Module FvwmForm QuitVerify
 
 # This is used by the mouse contexts
 AddToMenu Window-Ops "Window Operations" Title
@@ -83,6 +85,7 @@ Style * DecorateTransient, NoPPosition
 Style * IconBox 0 -10 -280 -1
 #Style FvwmButtons Sticky, WindowListSkip, NoTitle, NoHandles, BorderWidth 0
 Style FvwmPager   Sticky, WindowListSkip, NoTitle, NoHandles, BorderWidth 2
+Style xclock   Sticky, WindowListSkip, NoTitle, NoHandles, BorderWidth 2
 Style * SmartPlacement
 
 
